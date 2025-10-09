@@ -1,16 +1,29 @@
+// src/App.js
+
 import React from 'react';
-// Remove the default logo import: import logo from './logo.svg'; 
-// Remove the default CSS import if you aren't using it: import './App.css'; 
+// 1. Import your main styling file
+import './App.css'; 
+// 2. Import the Header component you'll create next
+import Header from './components/Header'; 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* Replace everything inside <header> */}
-        <h1>Welcome to the Cyber Trainer App!</h1>
-        <p>Your custom application is now running correctly.</p>
-        {/* You would place your imported components here, like <Dashboard /> */}
-      </header>
+    <div className="App-container">
+      {/* 3. Use the Header component */}
+      <Header /> 
+
+      <main className="main-content">
+        <h2>Welcome to the Home Page!</h2>
+        <p>This is where your main website content goes.</p>
+        <p>
+          In React, we use components (like the Header above) to break down our website into reusable parts.
+        </p>
+        <button>Click Me</button>
+      </main>
+
+      <footer>
+        <p>&copy; {new Date().getFullYear()} My React Website</p>
+      </footer>
     </div>
   );
 }
