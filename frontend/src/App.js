@@ -6,13 +6,13 @@ import './App.css';
 // 2. Import the Header component you'll create next
 import Header from './components/Header'; 
 
-import { useState } from "react";
-import Navbar from "./components/Navbar";
-import Dashboard from "./components/Dashboard";
-import PhishingSimulator from "./components/PhishingSimulator";
-import FakeWebsiteDetector from "./components/FakeWebsiteDetector";
-import PasswordTester from "./components/PasswordTester";
-import CyberScore from "./components/CyberScore";
+//import { useState } from "react";
+//import Navbar from "./components/Navbar";
+//import Dashboard from "./components/Dashboard";
+//import PhishingSimulator from "./components/PhishingSimulator";
+//import FakeWebsiteDetector from "./components/FakeWebsiteDetector";
+//import PasswordTester from "./components/PasswordTester";
+//import CyberScore from "./components/CyberScore";
 
 function App() {
   return (
