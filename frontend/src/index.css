@@ -1,16 +1,315 @@
 /* App container */
-.app-container {
+/* Dashboard Container */
+.dashboard-container {
   min-height: 100vh;
-  background-color: #f9fafb; /* Tailwind bg-gray-50 */
-  color: #1f2937; /* Tailwind text-gray-800 */
-  font-family: Arial, sans-serif;
+  background: hsl(240, 20%, 99%);
+  padding: 2rem;
 }
 
-/* Page content wrapper */
-.page-content {
-  padding: 1.5rem; /* Tailwind p-6 */
-  max-width: 64rem; /* Tailwind max-w-4xl */
-  margin: 0 auto; /* Tailwind mx-auto */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+}
+
+.dashboard-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Header */
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, hsl(262, 83%, 58%), hsl(230, 80%, 65%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-subtitle {
+  color: hsl(220, 9%, 46%);
+  font-size: 1rem;
+}
+
+/* Loading State */
+.dashboard-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  background: hsl(240, 20%, 99%);
+}
+
+.loading-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid hsl(262, 83%, 58%, 0.2);
+  border-top-color: hsl(262, 83%, 58%);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-text {
+  color: hsl(220, 9%, 46%);
+}
+
+/* Error State */
+.dashboard-error {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(240, 20%, 99%);
+  color: hsl(0, 84.2%, 60.2%);
+}
+
+/* Cards Grid */
+.dashboard-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card Component */
+.dashboard-card {
+  background: white;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(220, 13%, 91%);
+  box-shadow: 0 4px 20px -2px hsl(262, 83%, 58%, 0.15);
+  transition: all 0.3s ease;
+  animation: scaleIn 0.3s ease-out;
+  overflow: hidden;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 8px 30px -4px hsl(262, 83%, 58%, 0.25);
+  transform: translateY(-2px);
+}
+
+.dashboard-card.primary-border {
+  border-color: hsl(262, 83%, 58%, 0.2);
+}
+
+.dashboard-card.success-border {
+  border-color: hsl(142, 76%, 36%, 0.2);
+}
+
+.dashboard-card.accent-border {
+  border-color: hsl(45, 93%, 58%, 0.2);
+}
+
+.dashboard-card.span-2 {
+  grid-column: span 1;
+}
+
+@media (min-width: 768px) {
+  .dashboard-card.span-2 {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-card.span-2 {
+    grid-column: span 1;
+  }
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.5rem 0.5rem;
+}
+
+.card-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(220, 9%, 46%);
+}
+
+.card-icon {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon.primary {
+  background: linear-gradient(135deg, hsl(262, 83%, 58%), hsl(230, 80%, 65%));
+}
+
+.card-icon.success {
+  background: hsl(142, 76%, 36%, 0.1);
+}
+
+.card-icon.accent {
+  background: linear-gradient(135deg, hsl(45, 93%, 58%), hsl(38, 92%, 50%));
+}
+
+.card-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.card-icon.primary svg {
+  color: white;
+}
+
+.card-icon.success svg {
+  color: hsl(142, 76%, 36%);
+}
+
+.card-icon.accent svg {
+  color: hsl(26, 83%, 14%);
+}
+
+/* Card Content */
+.card-content {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.card-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: hsl(240, 10%, 10%);
+  margin-bottom: 0.5rem;
+}
+
+.card-value.medium {
+  font-size: 1.5rem;
+}
+
+.card-description {
+  font-size: 0.75rem;
+  color: hsl(220, 9%, 46%);
+  margin-top: 0.5rem;
+}
+
+/* Badges Container */
+.badges-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+/* Badge Component */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.375rem;
+  border: 1px solid;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.badge.success {
+  background: hsl(142, 76%, 36%, 0.1);
+  color: hsl(142, 76%, 36%);
+  border-color: hsl(142, 76%, 36%, 0.2);
+}
+
+.badge.success:hover {
+  background: hsl(142, 76%, 36%, 0.2);
+}
+
+.badge.accent {
+  background: linear-gradient(135deg, hsl(45, 93%, 58%), hsl(38, 92%, 50%));
+  color: hsl(26, 83%, 14%);
+  border-color: transparent;
+}
+
+.badge.accent:hover {
+  opacity: 0.9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .dashboard-container,
+  .dashboard-loading,
+  .dashboard-error {
+    background: hsl(240, 10%, 8%);
+  }
+
+  .dashboard-card {
+    background: hsl(240, 8%, 12%);
+    border-color: hsl(240, 6%, 20%);
+  }
+
+  .card-value {
+    color: hsl(240, 20%, 98%);
+  }
+
+  .dashboard-title,
+  .card-title,
+  .card-description,
+  .loading-text {
+    color: hsl(240, 20%, 98%);
+  }
+
+  .dashboard-subtitle {
+    color: hsl(240, 5%, 65%);
+  }
+
+  .card-description {
+    color: hsl(240, 5%, 65%);
+  }
 }
 
 /* CyberScore card */
@@ -362,3 +661,6 @@
 .ps-wrong {
   color: #dc2626; /* text-red-600 */
 }
+
+
+

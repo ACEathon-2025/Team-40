@@ -1,11 +1,15 @@
+import "./navbar.css";
+
 export default function Navbar({ setActivePage }) {
   return (
-    <div className="navbar-container">
-      <button onClick={() => setActivePage("dashboard")} className="navbar-btn">Dashboard</button>
-      <button onClick={() => setActivePage("phishing")} className="navbar-btn">Phishing</button>
-      <button onClick={() => setActivePage("fakeweb")} className="navbar-btn">Fake Site</button>
-      <button onClick={() => setActivePage("password")} className="navbar-btn">Password</button>
-      <button onClick={() => setActivePage("score")} className="navbar-btn">Score</button>
-    </div>
+    <nav className="navbar">
+      <div className="nav-logo" onClick={() => setActivePage("landing")}>
+        🧠 Cyber Awareness Trainer
+      </div>
+      <div className="nav-links">
+        <button onClick={() => setActivePage("features")}>Features</button>
+        <button onClick={() => setActivePage("dashboard")}>Dashboard</button>
+      </div>
+    </nav>
   );
 }
